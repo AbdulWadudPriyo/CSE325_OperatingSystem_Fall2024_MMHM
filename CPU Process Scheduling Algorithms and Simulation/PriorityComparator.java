@@ -1,0 +1,22 @@
+package ProcessScheduling;
+
+import java.util.*;
+
+public class PriorityComparator implements Comparator<Process> {
+
+	@Override
+	public int compare(Process o1, Process o2) {
+		int diff = o2.getPriority() -o1.getPriority();
+		
+		if(diff == 0) {
+			diff = o1.getArrivingTime() - o2.getArrivingTime();
+		}
+		
+		if(diff == 0) {
+			diff = o1.getId() - o2.getId();
+		}
+		return diff;
+	
+	}
+  
+}
